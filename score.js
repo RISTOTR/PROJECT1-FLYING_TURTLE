@@ -10,6 +10,7 @@ function Score (game){
   }
   
   Score.prototype.draw = function () {
-    this.game.ctx.font = "30px sans-serif",
-    this.game.ctx.fillText("Score: " + this.point, 800, 100);
+    this.game.ctx.font = "46px Luckiest Guy",
+    this.game.ctx.fillStyle ="orange";
+    this.game.ctx.fillText("Score: " + this.point, 950, 80);
   }
