@@ -5,7 +5,7 @@ function Turtle(game) {
     this.game = game;
   
     this.vy = 0;
-    this.g = 0.2;
+    this.g = 0.3;
   
     this.width = 100;
     this.height = 100;
@@ -55,8 +55,7 @@ function Turtle(game) {
         this.vy -= 5;
         this.y -= 10;
       } else if (e.keyCode == 39) {
-          
-        this.x += 40;
+          this.x += 40;
       } else if (e.keyCode == 37 ){
           this.x -=40;
     }

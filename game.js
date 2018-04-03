@@ -53,8 +53,7 @@ function Game(canvasId) {
   };
   
   Game.prototype.isCollision = function() {
-    console.log(this.obstacles)
-    console.log(this.turtle)
+    
     for (var i=0; i<this.obstacles.length; i++) {
       if (this.turtle.x < this.obstacles.x + this.obstacles.width &&
         this.turtle.x + this.turtle.width > this.obstacles.x &&
@@ -66,7 +65,7 @@ function Game(canvasId) {
      }
 
     }
-  
+
   };
 
   /*return this.obstacles.some(function (o) {

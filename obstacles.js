@@ -4,14 +4,14 @@ function Obstacle(game) {
     
     
     
-    this.height = 250;
-    this.width = 50;
+    this.height = 300;
+    this.width = 40;
 
     this.img = new Image();
     this.img.src = "img/branch.png";
 
     this.x = this.game.canvas.width;
-    this.y = Math.floor((Math.random()*8)*50)+10;
+    this.y =  Math.floor((Math.random()*7)*50)+10;
   }
   
   Obstacle.prototype.draw = function() {
