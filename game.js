@@ -44,19 +44,19 @@ function Game(canvasId) {
     this.background = new Background(this);
     this.turtle = new Turtle(this);
     
-    this.score = new Score(this)
+    this.score = new Score(this);
   
-    this.framesCounter = 0,
+    this.framesCounter = 0;
   
-    this.obstacles = []
+   this.obstacles = []
   
   };
   
   Game.prototype.isCollision = function() {
     return this.obstacles.some(function (o) {
-      return (this.player.x + this.player.width > o.x) &&
-        (o.x + o.width > this.player.x) && 
-        (this.player.y + this.player.height > o.y)
+      return (this.turtle.x + this.turtle.width > o.x) &&
+        (o.x + o.width > this.turtle.x) && 
+        (this.turtle.y + this.turtle.height > o.y)
     }.bind(this))
   
   };

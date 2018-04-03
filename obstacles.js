@@ -8,23 +8,18 @@ function Obstacle(game) {
     this.img.src = "img/branch.png";
 
     this.x = this.game.canvas.width;
-    this.y = this.game.player.y0 + this.game.player.height - this.height;
-  
-  
-  
+    this.y = this.game.turtle.y0 + this.game.turtle.height - this.height;
   }
   
   Obstacle.prototype.draw = function() {
-    this.game.ctx.drawImage(
-        this.x,
-        this.y,
-        this.width, 
-        this.height,
-        this.x,
-        this.y,
-        this.width,
-        this.height
-  };
+    this.game.ctx.drawImage(this.img,
+    this.x,
+    this.y,
+    this.width,
+    this.height
+    )
+};
+  
   
   Obstacle.prototype.move = function() {
     this.x -= this.game.background.dx;

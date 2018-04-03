@@ -5,7 +5,7 @@ function Turtle(game) {
     this.game = game;
   
     this.vy = 0;
-    this.g = 0.4;
+    this.g = 0.2;
   
     this.width = 100;
     this.height = 100;
@@ -13,7 +13,7 @@ function Turtle(game) {
     this.img = new Image();
     this.img.src = "img/turtle.png";
     this.img.frames = 4;
-    this.img.frameIndex = 1;
+    this.img.frameIndex = 0;
     this.bullets = [];
     this.setListeners();
   }
@@ -40,10 +40,11 @@ function Turtle(game) {
     }.bind(this));
   
     if (this.game.framesCounter % 10 == 0) {
+        console.log(this.img.frameIndex)
       this.img.frameIndex += 1;
     }
   
-    if (this.img.frameIndex == 4) {
+    if (this.img.frameIndex >= 4) {
       this.img.frameIndex = 0;
     }
   };
@@ -51,9 +52,15 @@ function Turtle(game) {
   Turtle.prototype.setListeners = function() {
     document.onkeydown = function(e) {
       if (e.keyCode == 38) {
-        this.vy -= 10;
-        this.y -= 20;
-      } else if (e.keyCode === 32) {
+        this.vy -= 5;
+        this.y -= 10;
+      } else if (e.keyCode == 39) {
+          
+        this.x += 40;
+      } else if (e.keyCode == 37 ){
+          this.x -=40;
+    }
+        else if (e.keyCode === 32) {
         this.shoot();
       }
     }.bind(this);

@@ -1,8 +1,8 @@
 function Bullet(game) {
     this.game = game;
   
-    this.x = this.game.player.x + this.game.player.width;
-    this.y = this.game.player.y + this.game.player.height / 2;
+    this.x = this.game.turtle.x + this.game.turtle.width;
+    this.y = this.game.turtle.y + this.game.turtle.height / 2;
     this.r = 10;
     this.vx = 10;
     this.vy = 0;
