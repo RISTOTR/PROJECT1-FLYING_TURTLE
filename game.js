@@ -1,6 +1,7 @@
 function Game(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext("2d");
+    this.obstacles = [];
   
     this.reset();
   }
@@ -15,7 +16,7 @@ function Game(canvasId) {
       if (this.framesCounter >= 1000){
         this.framesCounter = 0
       }
-      if (this.framesCounter % 100 ===0){
+      if (this.framesCounter % 180 ===0){
         this.generateObstacle()
       }
       if(this.isCollision()){
@@ -24,7 +25,6 @@ function Game(canvasId) {
       if (this.framesCounter % 100 === 0){
         this.score.incrementScore();
       }
-      console.log(this.score.point);
     }.bind(this), 1000/60);
   };
   
@@ -48,20 +48,53 @@ function Game(canvasId) {
   
     this.framesCounter = 0;
   
-   this.obstacles = []
+   this.obstacles = [];
   
   };
   
   Game.prototype.isCollision = function() {
-    return this.obstacles.some(function (o) {
+    console.log(this.obstacles)
+    console.log(this.turtle)
+    for (var i=0; i<this.obstacles.length; i++) {
+      if (this.turtle.x < this.obstacles.x + this.obstacles.width &&
+        this.turtle.x + this.turtle.width > this.obstacles.x &&
+        this.turtle.y < this.obstacles.y + this.obstacles.height &&
+        this.turtle.height + this.turtle.y > this.obstacles.y) {
+         return true;
+     } else {
+       return false;
+     }
+
+    }
+  
+  };
+
+  /*return this.obstacles.some(function (o) {
       return (this.turtle.x + this.turtle.width > o.x) &&
         (o.x + o.width > this.turtle.x) && 
         (this.turtle.y + this.turtle.height > o.y)
     }.bind(this))
   
-  };
+  };*/
+     // (this.turtle.x < this.obstacle.x + this.obstacle.width  && this.turtle.x + this.turtle.width  > this.obstacle.x &&
+      //this.turtle.y < this.obastacle.y + this.obstacle.height && this.turtle.y + this.turtle.height > this.obstacle.y) 
+
+   // Math.abs(this.turtle.x - this.o.x) < this.turtle.w && 
+    //Math.abs(this.turtle.y - this.0.y) < this.turtle.h
+    //return this.obstacles.some(function (o) {
+     // return (this.turtle.x + this.turtle.width > o.x) &&
+     //   (o.x + o.width > this.turtle.x) && 
+      //  (this.turtle.y + this.turtle.height > o.y)
+     // }
+  
+  //};
   
   Game.prototype.clearObstacles = function() {
+    for (var i=0; i<this.obstacles.length; i++) {
+      if(this.obstacles[i].x < 0){
+        this.obstacles.splice(i, 1);
+      }
+    }
   };
   
   Game.prototype.generateObstacle = function() {

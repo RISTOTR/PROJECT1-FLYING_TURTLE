@@ -1,6 +1,9 @@
 function Obstacle(game) {
     this.game = game;
   
+    
+    
+    
     this.height = 250;
     this.width = 50;
 
@@ -8,7 +11,7 @@ function Obstacle(game) {
     this.img.src = "img/branch.png";
 
     this.x = this.game.canvas.width;
-    this.y = this.game.turtle.y0 + this.game.turtle.height - this.height;
+    this.y = Math.floor((Math.random()*8)*50)+10;
   }
   
   Obstacle.prototype.draw = function() {

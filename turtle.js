@@ -40,7 +40,7 @@ function Turtle(game) {
     }.bind(this));
   
     if (this.game.framesCounter % 10 == 0) {
-        console.log(this.img.frameIndex)
+
       this.img.frameIndex += 1;
     }
   
