@@ -2,6 +2,10 @@ function Game(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext("2d");
     this.obstacles = [];
+    this.turtle;
+    this.score;
+    this.background;
+    this.framesCounter = 0;
   
     this.reset();
   }
@@ -53,40 +57,19 @@ function Game(canvasId) {
   };
   
   Game.prototype.isCollision = function() {
-    
-    for (var i=0; i<this.obstacles.length; i++) {
-      if (this.turtle.x < this.obstacles.x + this.obstacles.width &&
-        this.turtle.x + this.turtle.width > this.obstacles.x &&
-        this.turtle.y < this.obstacles.y + this.obstacles.height &&
-        this.turtle.height + this.turtle.y > this.obstacles.y) {
-         return true;
-     } else {
-       return false;
-     }
-
-    }
-
+    var collision = false;
+    this.obstacles.forEach(e => {
+      if (
+        this.turtle.x < e.x + e.width &&
+        this.turtle.x + this.turtle.width > e.x &&
+        this.turtle.y < e.y + e.height &&
+        this.turtle.height + this.turtle.y > e.y
+      ) {
+        return collision = true
+      }
+    });
+    return collision;
   };
-
-  /*return this.obstacles.some(function (o) {
-      return (this.turtle.x + this.turtle.width > o.x) &&
-        (o.x + o.width > this.turtle.x) && 
-        (this.turtle.y + this.turtle.height > o.y)
-    }.bind(this))
-  
-  };*/
-     // (this.turtle.x < this.obstacle.x + this.obstacle.width  && this.turtle.x + this.turtle.width  > this.obstacle.x &&
-      //this.turtle.y < this.obastacle.y + this.obstacle.height && this.turtle.y + this.turtle.height > this.obstacle.y) 
-
-   // Math.abs(this.turtle.x - this.o.x) < this.turtle.w && 
-    //Math.abs(this.turtle.y - this.0.y) < this.turtle.h
-    //return this.obstacles.some(function (o) {
-     // return (this.turtle.x + this.turtle.width > o.x) &&
-     //   (o.x + o.width > this.turtle.x) && 
-      //  (this.turtle.y + this.turtle.height > o.y)
-     // }
-  
-  //};
   
   Game.prototype.clearObstacles = function() {
     for (var i=0; i<this.obstacles.length; i++) {

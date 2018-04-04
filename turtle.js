@@ -5,6 +5,7 @@ function Turtle(game) {
     this.game = game;
   
     this.vy = 0;
+    this.vx = 0;
     this.g = 0.3;
   
     this.width = 100;
@@ -51,17 +52,48 @@ function Turtle(game) {
   
   Turtle.prototype.setListeners = function() {
     document.onkeydown = function(e) {
-      if (e.keyCode == 38) {
-        this.vy -= 5;
-        this.y -= 10;
-      } else if (e.keyCode == 39) {
-          this.x += 40;
-      } else if (e.keyCode == 37 ){
+      switch (e.keyCode) {
+
+      case  38: 
+      if (this.y <= 160) {
+        this.vy === 0;
+        this.y -= this.g;
+        
+        return; 
+      }
+      else {
+        this.y -= 5;
+        this.vy -= 10;
+      }
+      break;
+
+     case 39:
+      if (this.x >= this.game.canvas.width - 120) {
+        this.vx === 0;
+        return;
+      } 
+      else {
+        this.x += 40;
+        this.vx += 40;
+      }
+      break;
+
+      case 37:
+      if (this.x <= 50) {
+        this.vx === 0;
+        return;
+      }
+      else {
           this.x -=40;
-    }
-        else if (e.keyCode === 32) {
+          this.vx += 40;
+      }
+      break;
+
+        case 32: {
         this.shoot();
       }
+      break;
+    }
     }.bind(this);
   };
   
@@ -72,10 +104,17 @@ function Turtle(game) {
   Turtle.prototype.animateImg = function() {};
   
   Turtle.prototype.move = function() {
+    if (this.y <= 20){
+      this.y = 21;
+    }
+    
     if (this.y < this.y0) {
       this.vy += this.g;
       this.y += this.vy;
-    } else {
+      }
+  
+        
+        else {
       this.vy = 0;
       this.y = this.y0;
     }
