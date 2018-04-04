@@ -32,7 +32,6 @@ function Game(canvasId) {
         this.gameOver();
         }
       if(this.turtle.isCollisionBullet()){
-        console.log('COLISION')
         this.gameOver();
         }
       if (this.framesCounter % 100 === 0){
