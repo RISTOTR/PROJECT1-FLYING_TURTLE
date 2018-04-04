@@ -1,6 +1,6 @@
 function Turtle(game) {
     this.x = 50;
-    this.y0 = 500;
+    this.y0 = 520;
     this.y = this.y0;
     this.game = game;
   
@@ -8,7 +8,7 @@ function Turtle(game) {
     this.vx = 0;
     this.g = 0.3;
   
-    this.width = 100;
+    this.width = 130;
     this.height = 100;
   
     this.img = new Image();
@@ -137,7 +137,7 @@ function Turtle(game) {
         bullet.height + bullet.y > bag.y
       ) 
     {
-      console.log('COLISION EN IS COLLISION BULLET')
+      
       collision = true;
     }
   });

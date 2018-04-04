@@ -22,7 +22,7 @@ function Game(canvasId) {
       if (this.framesCounter >= 1000){
         this.framesCounter = 0
       }
-      if (this.framesCounter % 180 ===0){
+      if (this.framesCounter % 200 ===0){
         this.generateObstacle();
       }
       if (this.framesCounter % 380 ===0){

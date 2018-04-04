@@ -10,8 +10,15 @@ function Obstacle(game) {
   this.img = new Image();
   this.img.src = "img/branch.png";
 
+  this.minY= -20;
+  this.maxY= 425;
+
   this.x = this.game.canvas.width;
-  this.y = Math.floor(Math.random() * 7 * 50) + 10;
+  this.y = this.numRandom(this.minY, this.maxY);
+}
+
+Obstacle.prototype.numRandom = function (min, max) {
+  return num = Math.round(Math.random() * (max - min) + min);
 }
 
 Obstacle.prototype.draw = function() {

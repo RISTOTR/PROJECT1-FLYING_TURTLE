@@ -1,13 +1,18 @@
 .btn-start {
-    padding: 40px 130px;
-    background-color: rgb(47, 47, 248) !important;
-    font-style: "Luckiest Guy";
-    font-size: 100px;
+    padding: 10px 30px;
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     border-radius: 10%;
-    border: 5px solid rgb(3, 12, 141)
-    
-
+    border: 10px solid rgb(18, 81, 216);
 }
+
+
+
+
+
+  
 
 .start-page{
     margin-top: 100px;
@@ -16,7 +21,9 @@
 }
 
 .start-body {
-    background-color: rgb(145, 186, 248)
+    background-image: url("img/turtlered.jpg");
+    background-size: cover !important;
+    background-repeat: no-repeat;
 }
  
 
