@@ -107,7 +107,7 @@ function Turtle(game) {
     if (this.y <= 20){
       this.y = 21;
     }
-    
+
     if (this.y < this.y0) {
       this.vy += this.g;
       this.y += this.vy;
