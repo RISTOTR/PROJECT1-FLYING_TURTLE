@@ -1,18 +1,17 @@
 function Bag(game) {
     this.game = game;
-    this.vy = 5;
+    this.vy = 0.5;
     this.height = 50;
     this.width = 40;
 
     this.img = new Image();
     this.img.src = "img/bag.png";
 
-    this.x = Math.floor(Math.random()*400);
+    this.x = 600;
     this.y = 0;
   }
   
   Bag.prototype.draw = function() {
-      console.log("hello");
     this.game.ctx.drawImage(this.img,
     this.x,
     this.y,
@@ -28,3 +27,16 @@ function Bag(game) {
     this.y += this.vy;
     
   };
+
+
+  // Bag.prototype.collidesWith = function(player){
+  //   if (
+  //     player.x < this.x + this.width &&
+  //     player.x + player.width > this.x &&
+  //     player.y < this.y + this.height &&
+  //     player.height + player.y > this.y
+  //   ) {
+  //     return true;
+  //   }
+  //   return false
+  // }

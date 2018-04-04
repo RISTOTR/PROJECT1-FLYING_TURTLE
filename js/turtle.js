@@ -122,4 +122,26 @@ function Turtle(game) {
       b.move();
     });
   };
+
+  Turtle.prototype.isCollisionBullet = function(){
+    
+    var collision = false;
+    this.bullets.forEach(bullet => {
+      
+    this.game.bags.forEach(bag => {
+      
+      if (
+        bullet.x < bag.x + bag.width &&
+        bullet.x + bullet.width > bag.x &&
+        bullet.y < bag.y + bag.height &&
+        bullet.height + bullet.y > bag.y
+      ) 
+    {
+      console.log('COLISION EN IS COLLISION BULLET')
+      collision = true;
+    }
+  });
+  });
+  return collision;
+};
   

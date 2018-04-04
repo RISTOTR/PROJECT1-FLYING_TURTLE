@@ -3,6 +3,7 @@ function Game(canvasId) {
     this.ctx = this.canvas.getContext("2d");
     this.obstacles = [];
     this.bags = [];
+    this.bullets = [];
     this.turtle;
     this.score;
     this.background;
@@ -29,7 +30,11 @@ function Game(canvasId) {
       }
       if(this.isCollision()){
         this.gameOver();
-      }
+        }
+      if(this.turtle.isCollisionBullet()){
+        console.log('COLISION')
+        this.gameOver();
+        }
       if (this.framesCounter % 100 === 0){
         this.score.incrementScore();
       }
@@ -58,23 +63,22 @@ function Game(canvasId) {
   
    this.obstacles = [];
    this.bags = [];
+   this.bullets = [];
   
   };
   
   Game.prototype.isCollision = function() {
     var collision = false;
-    this.obstacles.forEach(e => {
-      if (
-        this.turtle.x < e.x + e.width &&
-        this.turtle.x + this.turtle.width > e.x &&
-        this.turtle.y < e.y + e.height &&
-        this.turtle.height + this.turtle.y > e.y
-      ) {
-        return collision = true
+    this.obstacles.forEach(obstacle => {
+      if(obstacle.collidesWith(this.turtle)){
+        collision = true;
       }
     });
     return collision;
   };
+
+  
+
   
   Game.prototype.clearObstacles = function() {
     for (var i=0; i<this.obstacles.length; i++) {

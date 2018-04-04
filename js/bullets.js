@@ -27,3 +27,16 @@ function Bullet(game) {
     }
     this.x += this.vx;
   };
+
+
+  Bullet.prototype.collidesWith = function(player){
+    if (
+      player.x < this.x + this.width &&
+      player.x + player.width > this.x &&
+      player.y < this.y + this.height &&
+      player.height + player.y > this.y
+    ) {
+      return true;
+    }
+    return false
+  }
