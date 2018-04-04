@@ -2,6 +2,7 @@ function Game(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext("2d");
     this.obstacles = [];
+    this.bags = [];
     this.turtle;
     this.score;
     this.background;
@@ -21,7 +22,10 @@ function Game(canvasId) {
         this.framesCounter = 0
       }
       if (this.framesCounter % 180 ===0){
-        this.generateObstacle()
+        this.generateObstacle();
+      }
+      if (this.framesCounter % 380 ===0){
+        this.generateBag();
       }
       if(this.isCollision()){
         this.gameOver();
@@ -49,10 +53,11 @@ function Game(canvasId) {
     this.turtle = new Turtle(this);
     
     this.score = new Score(this);
-  
+    
     this.framesCounter = 0;
   
    this.obstacles = [];
+   this.bags = [];
   
   };
   
@@ -80,7 +85,11 @@ function Game(canvasId) {
   };
   
   Game.prototype.generateObstacle = function() {
-    this.obstacles.push(new Obstacle(this))
+    this.obstacles.push(new Obstacle(this));
+  };
+
+  Game.prototype.generateBag = function() {
+    this.bags.push(new Bag(this));
   };
   
   Game.prototype.clear = function() {
@@ -90,13 +99,15 @@ function Game(canvasId) {
   Game.prototype.draw = function() {
     this.background.draw();
     this.turtle.draw();
-    this.obstacles.forEach(function(o){ o.draw(); })
+    this.obstacles.forEach(function(o){ o.draw(); });
+    this.bags.forEach(function(o){o.draw(); });
     this.score.draw();
   };
   
   Game.prototype.moveAll = function() {
-    this.background.move()
-    this.turtle.move()
-    this.obstacles.forEach(function(o){ o.move(); })
+    this.background.move();
+    this.turtle.move();
+    this.obstacles.forEach(function(o){ o.move(); });
+    this.bags.forEach(function(o){o.move(); });
   };
   

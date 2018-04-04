@@ -1,7 +1,8 @@
 function Obstacle(game) {
     this.game = game;
   
-    
+    //this.posMinx = this 
+    //this.posMax
     
     
     this.height = 300;
