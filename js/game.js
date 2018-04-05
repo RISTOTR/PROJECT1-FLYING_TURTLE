@@ -29,7 +29,7 @@ function Game(canvasId) {
         this.generateBag();
       }
       if(this.isCollision()){
-        this.turtle.health -= 10;
+        this.turtle.health -= 5;
         console.log(this.turtle.health);
         }
         if (this.turtle.health < 0) {
