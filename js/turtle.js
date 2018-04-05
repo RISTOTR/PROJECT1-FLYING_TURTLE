@@ -3,13 +3,13 @@ function Turtle(game) {
     this.y0 = 520;
     this.y = this.y0;
     this.game = game;
-    this.health = 100;
+    this.health = 3000;
     this.vy = 0;
     this.vx = 0;
     this.g = 0.3;
 
     this.hX = 50;
-    this.hY = 90;
+    this.hY = 70;
     this.hW = 100;
     this.hH = 20;
   
@@ -40,9 +40,10 @@ function Turtle(game) {
 
     Turtle.prototype.drawHealth = function(){
       this.game.ctx.fillStyle="red";
-      this.game.ctx.fillRect(this.hX, this.hY, this.hW, this.hH);
+      this.game.ctx.fillRect(this.hX, this.hY, 300, 20);
+      console.log(this.hX)
       this.game.ctx.fillStyle="orange";
-      this.game.ctx.fillRect(this.hX,this.hY,this.health/2, this.hH);
+      this.game.ctx.fillRect(this.hX,this.hY,this.health/10, 20);
       
     }
   

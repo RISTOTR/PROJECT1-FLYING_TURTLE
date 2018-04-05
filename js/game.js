@@ -29,10 +29,14 @@ function Game(canvasId) {
         this.generateBag();
       }
       if(this.isCollision()){
+        this.turtle.health -= 10;
+        console.log(this.turtle.health);
+        }
+        if (this.turtle.health < 0) {
         this.gameOver();
         }
       if(this.turtle.isCollisionBullet()){
-        this.gameOver();
+        this.turtle.health += 3;
         }
       if (this.framesCounter % 100 === 0){
         this.score.incrementScore();
@@ -55,21 +59,17 @@ function Game(canvasId) {
   Game.prototype.reset = function() {
     this.background = new Background(this);
     this.turtle = new Turtle(this);
-    
     this.score = new Score(this);
-    
     this.framesCounter = 0;
-  
-   this.obstacles = [];
-   this.bags = [];
-   this.bullets = [];
-  
+    this.obstacles = [];
+    this.bags = [];
+    this.bullets = [];
   };
   
   Game.prototype.isCollision = function() {
     var collision = false;
     this.obstacles.forEach(obstacle => {
-      if(obstacle.collidesWith(this.turtle)){
+      if (obstacle.collidesWith(this.turtle)) {
         collision = true;
       }
     });

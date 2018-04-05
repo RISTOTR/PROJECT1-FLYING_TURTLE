@@ -31,7 +31,7 @@ function Bullet(game) {
   };
 
 
-  Bullet.prototype.collidesWith = function(player){
+  /*Bullet.prototype.collidesWith = function(player){
     if (
       player.x < this.x + this.width &&
       player.x + player.width > this.x &&
@@ -41,4 +41,4 @@ function Bullet(game) {
       return true;
     }
     return false
-  }
+  }*/

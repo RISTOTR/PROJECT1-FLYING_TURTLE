@@ -37,6 +37,7 @@ Obstacle.prototype.collidesWith = function(player){
     player.y < this.y + this.height &&
     player.height + player.y > this.y
   ) {
+    
     return true;
   }
   return false
