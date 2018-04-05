@@ -22,6 +22,11 @@ function Turtle(game) {
     this.img.frameIndex = 0;
     this.bullets = [];
     this.setListeners();
+    this.rocketsound = new Audio ();
+    this.rocketsound.src = "audio/zapsplat_cartoon_rocket_launch_missle.mp3"
+    this.bagsound = new Audio ();
+    this.bagsound.src = "audio/zapsplat_cartoon_balloon_hit_twang_003.mp3"
+    
   }
   
   Turtle.prototype.draw = function() {
@@ -41,7 +46,6 @@ function Turtle(game) {
     Turtle.prototype.drawHealth = function(){
       this.game.ctx.fillStyle="red";
       this.game.ctx.fillRect(this.hX, this.hY, 300, 20);
-      console.log(this.hX)
       this.game.ctx.fillStyle="orange";
       this.game.ctx.fillRect(this.hX,this.hY,this.health/10, 20);
       
@@ -106,6 +110,7 @@ function Turtle(game) {
 
         case 32: {
         this.shoot();
+        this.rocketsound.play();
       }
       break;
     }
@@ -116,7 +121,6 @@ function Turtle(game) {
     this.bullets.push(new Bullet(this.game));
   };
   
-  Turtle.prototype.animateImg = function() {};
   
   Turtle.prototype.move = function() {
     if (this.y <= 20){
@@ -152,7 +156,7 @@ function Turtle(game) {
         bullet.height + bullet.y > bag.y
       ) 
     {
-      
+      this.bagsound.play();
       collision = true;
     }
   });

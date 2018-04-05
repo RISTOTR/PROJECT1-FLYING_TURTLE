@@ -3,13 +3,10 @@ function Bag(game) {
     this.vy = 0.8;
     this.height = 50;
     this.width = 40;
-
     this.img = new Image();
     this.img.src = "img/bag.png";
-
     this.minX= 150;
     this.maxX= 1400;
-
     this.x = this.numRandom(this.minX, this.maxX);
     this.y = 0;
   }
@@ -28,9 +25,6 @@ function Bag(game) {
     )
 };
 
-
-  
-  
   Bag.prototype.move = function() {
     this.y += this.vy;
     

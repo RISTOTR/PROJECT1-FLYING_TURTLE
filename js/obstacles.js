@@ -1,18 +1,11 @@
 function Obstacle(game) {
   this.game = game;
-
-  //this.posMinx = this
-  //this.posMax
-
   this.height = 300;
   this.width = 40;
-
   this.img = new Image();
   this.img.src = "img/branch.png";
-
   this.minY= -20;
   this.maxY= 425;
-
   this.x = this.game.canvas.width;
   this.y = this.numRandom(this.minY, this.maxY);
 }

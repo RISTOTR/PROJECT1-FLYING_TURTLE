@@ -8,12 +8,22 @@ function Game(canvasId) {
     this.score;
     this.background;
     this.framesCounter = 0;
+    this.turtlesong = new Audio ();
+    this.turtlesong.src = "audio/Crash_Bandicoot_-_Main_Theme_(mp3.pm).mp3";
+    this.turtlesong.loop= true;
+    this.rocketsound = new Audio ();
+    this.rocketsound.src = "audio/zapsplat_cartoon_rocket_launch_missle.mp3";
+    this.treehit = new Audio ();
+    this.treehit.src = "audio/zapsplat_cartoon_voice_high_pitched_pain_grunt_009_15791.mp3"
+    this.bagsound = new Audio ();
+    this.bagsound.src = "audio/zapsplat_cartoon_balloon_hit_twang_003.mp3"
   
     this.reset();
   }
 
   
   Game.prototype.start = function() { 
+    this.turtlesong.play();
     this.interval = setInterval( function () {
       this.clear();
       this.moveAll();
@@ -30,7 +40,6 @@ function Game(canvasId) {
       }
       if(this.isCollision()){
         this.turtle.health -= 5;
-        console.log(this.turtle.health);
         }
         if (this.turtle.health < 0) {
         this.gameOver();
@@ -70,6 +79,7 @@ function Game(canvasId) {
     var collision = false;
     this.obstacles.forEach(obstacle => {
       if (obstacle.collidesWith(this.turtle)) {
+        this.treehit.play();
         collision = true;
       }
     });
