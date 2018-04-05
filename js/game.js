@@ -36,7 +36,7 @@ function Game(canvasId) {
         this.gameOver();
         }
       if(this.turtle.isCollisionBullet()){
-        this.turtle.health += 3;
+        this.turtle.health += 1;
         }
       if (this.framesCounter % 100 === 0){
         this.score.incrementScore();
@@ -76,9 +76,15 @@ function Game(canvasId) {
     return collision;
   };
 
+  Game.prototype.clearBags = function() {
+    for (var i=0; i<this.bags.length; i++) {
+      if(this.bags[i].x < 0){
+        this.bags.splice(i, 1);
+      }
+    }
+  };
   
 
-  
   Game.prototype.clearObstacles = function() {
     for (var i=0; i<this.obstacles.length; i++) {
       if(this.obstacles[i].x < 0){
