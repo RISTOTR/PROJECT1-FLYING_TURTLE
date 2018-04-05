@@ -3,10 +3,15 @@ function Turtle(game) {
     this.y0 = 520;
     this.y = this.y0;
     this.game = game;
-  
+    this.health = 100;
     this.vy = 0;
     this.vx = 0;
     this.g = 0.3;
+
+    this.hX = 50;
+    this.hY = 90;
+    this.hW = 100;
+    this.hH = 20;
   
     this.width = 130;
     this.height = 100;
@@ -30,7 +35,16 @@ function Turtle(game) {
       this.y,
       this.width,
       this.height
+      
     );
+
+    Turtle.prototype.drawHealth = function(){
+      this.game.ctx.fillStyle="red";
+      this.game.ctx.fillRect(this.hX, this.hY, this.hW, this.hH);
+      this.game.ctx.fillStyle="orange";
+      this.game.ctx.fillRect(this.hX,this.hY,this.health/2, this.hH);
+      
+    }
   
     this.bullets.forEach(function(b) {
       b.draw();

@@ -105,6 +105,7 @@ function Game(canvasId) {
     this.obstacles.forEach(function(o){ o.draw(); });
     this.bags.forEach(function(o){o.draw(); });
     this.score.draw();
+    this.turtle.drawHealth();
   };
   
   Game.prototype.moveAll = function() {

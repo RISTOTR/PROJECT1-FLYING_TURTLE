@@ -6,6 +6,8 @@ function Bullet(game) {
     this.r = 10;
     this.vx = 10;
     this.vy = 0;
+    this.width = 2 * this.r;
+    this.height = 2 * this.r;
     
   
   }
