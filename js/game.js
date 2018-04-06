@@ -14,9 +14,9 @@ function Game(canvasId) {
     this.rocketsound = new Audio ();
     this.rocketsound.src = "audio/zapsplat_cartoon_rocket_launch_missle.mp3";
     this.treehit = new Audio ();
-    this.treehit.src = "audio/zapsplat_cartoon_voice_high_pitched_pain_grunt_009_15791.mp3"
+    this.treehit.src = "audio/zapsplat_cartoon_voice_high_pitched_pain_grunt_009_15791.mp3";
     this.bagsound = new Audio ();
-    this.bagsound.src = "audio/zapsplat_cartoon_balloon_hit_twang_003.mp3"
+    this.bagsound.src = "audio/zapsplat_cartoon_balloon_hit_twang_003.mp3";
   
     this.reset();
   }
