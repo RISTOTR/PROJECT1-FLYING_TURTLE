@@ -147,7 +147,7 @@ function Turtle(game) {
     var collision = false;
     this.bullets.forEach(bullet => {
       
-    this.game.bags.forEach(bag => {
+    this.game.bags.forEach((bag,index) => {
       
       if (
         bullet.x < bag.x + bag.width &&
@@ -156,6 +156,7 @@ function Turtle(game) {
         bullet.height + bullet.y > bag.y
       ) 
     {
+      this.game.bags.splice(index,1);
       this.bagsound.play();
       collision = true;
     }
