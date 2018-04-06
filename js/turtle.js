@@ -25,7 +25,7 @@ function Turtle(game) {
     this.rocketsound = new Audio ();
     this.rocketsound.src = "audio/zapsplat_cartoon_rocket_launch_missle.mp3"
     this.bagsound = new Audio ();
-    this.bagsound.src = "audio/zapsplat_cartoon_balloon_hit_twang_003.mp3"
+    this.bagsound.src = "audio/Blastwave_FX_BuildingExplosion_HV.86.mp3"
     
   }
   
